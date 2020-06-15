@@ -1,14 +1,13 @@
 package com.runner;
 
-import com.base.ExtentReportUtil;
-import com.aventstack.extentreports.gherkin.model.Feature;
+import static com.base.BaseUtil.features;
+
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import java.io.IOException;
-
-import static com.base.BaseUtil.features;
+import com.aventstack.extentreports.gherkin.model.Feature;
+import com.base.ExtentReportUtil;
 
 
 
@@ -46,7 +45,7 @@ public class NGTestListener implements ITestListener {
         extentReportUtil.ExtentReport();
 
         //ToDo: Feature - Hard coding the feature name
-        features = extentReportUtil.extent.createTest(Feature.class, "Login Feature");
+        features = extentReportUtil.extent.createTest(Feature.class, iTestContext.getName());
 
     }
 
